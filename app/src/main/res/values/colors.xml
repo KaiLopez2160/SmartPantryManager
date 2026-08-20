@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navy">#16152B</color>
+    <color name="pink">#FF4FA3</color>
+    <color name="orange">#FF8A4C</color>
+    <color name="purple">#8B5CF6</color>
+    <color name="cyan">#55DDE0</color>
+    <color name="off_white">#F7F3F8</color>
+    <color name="light_text">#D2CED6</color>
+    <color name="card_navy">#24223D</color>
+</resources>
