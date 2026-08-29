@@ -1,7 +1,9 @@
 package com.smartpantry.manager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,12 +26,18 @@ public class PantryActivity extends AppCompatActivity {
 
         recyclerPantry = findViewById(R.id.recyclerPantry);
         emptyState = findViewById(R.id.emptyState);
+        Button buttonAddIngredient = findViewById(R.id.buttonAddIngredient);
 
         databaseHelper = new DatabaseHelper(this);
         pantryAdapter = new PantryAdapter();
 
         recyclerPantry.setLayoutManager(new LinearLayoutManager(this));
         recyclerPantry.setAdapter(pantryAdapter);
+
+        buttonAddIngredient.setOnClickListener(view -> {
+            Intent intent = new Intent(PantryActivity.this, AddEditIngredientActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

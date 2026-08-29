@@ -3,13 +3,25 @@
     <string name="app_name">Smart Pantry Manager</string>
 
     <string name="pantry_title">My Pantry</string>
-
     <string name="pantry_subtitle">Ingredients you currently have</string>
-
     <string name="empty_pantry_title">Your pantry is empty</string>
-
     <string name="empty_pantry_message">Ingredients you add will appear here.</string>
-
     <string name="pantry_item_amount">%1$s %2$s</string>
+    <string name="add_ingredient">Add Ingredient</string>
+
+    <string name="add_ingredient_title">Add Ingredient</string>
+    <string name="add_ingredient_subtitle">Enter the ingredient details below</string>
+    <string name="ingredient_name_hint">Ingredient name</string>
+    <string name="quantity_hint">Quantity</string>
+    <string name="unit_hint">Unit (for example g, ml or items)</string>
+    <string name="save_ingredient">Save Ingredient</string>
+
+    <string name="error_ingredient_name">Enter an ingredient name</string>
+    <string name="error_quantity_required">Enter a quantity</string>
+    <string name="error_quantity_number">Enter a valid number</string>
+    <string name="error_quantity_positive">Quantity must be greater than zero</string>
+    <string name="error_unit">Enter a unit</string>
+    <string name="ingredient_added">Ingredient added</string>
+    <string name="ingredient_save_error">Could not save ingredient</string>
 
 </resources>

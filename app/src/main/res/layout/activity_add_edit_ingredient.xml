@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navy"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_ingredient_title"
+        android:textColor="@color/off_white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_ingredient_subtitle"
+        android:textColor="@color/cyan"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/editIngredientName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/purple"
+        android:hint="@string/ingredient_name_hint"
+        android:inputType="textCapWords"
+        android:maxLines="1"
+        android:textColor="@color/off_white"
+        android:textColorHint="@color/light_text" />
+
+    <EditText
+        android:id="@+id/editQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/purple"
+        android:hint="@string/quantity_hint"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:textColor="@color/off_white"
+        android:textColorHint="@color/light_text" />
+
+    <EditText
+        android:id="@+id/editUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/purple"
+        android:hint="@string/unit_hint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/off_white"
+        android:textColorHint="@color/light_text" />
+
+    <Button
+        android:id="@+id/buttonSaveIngredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/save_ingredient"
+        android:textAllCaps="false"
+        android:textColor="@color/navy"
+        android:textStyle="bold" />
+
+</LinearLayout>

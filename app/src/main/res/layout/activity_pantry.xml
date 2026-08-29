@@ -22,11 +22,22 @@
         android:textColor="@color/cyan"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/buttonAddIngredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/add_ingredient"
+        android:textAllCaps="false"
+        android:textColor="@color/navy"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/emptyState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/pantry_card_background"
         android:orientation="vertical"
         android:padding="24dp">
