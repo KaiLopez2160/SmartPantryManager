@@ -10,11 +10,19 @@
     <string name="add_ingredient">Add Ingredient</string>
 
     <string name="add_ingredient_title">Add Ingredient</string>
+    <string name="edit_ingredient_title">Edit Ingredient</string>
     <string name="add_ingredient_subtitle">Enter the ingredient details below</string>
     <string name="ingredient_name_hint">Ingredient name</string>
     <string name="quantity_hint">Quantity</string>
     <string name="unit_hint">Unit (for example g, ml or items)</string>
     <string name="save_ingredient">Save Ingredient</string>
+    <string name="update_ingredient">Update Ingredient</string>
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_ingredient_title">Delete ingredient</string>
+    <string name="delete_ingredient_message">Delete %1$s from your pantry?</string>
 
     <string name="error_ingredient_name">Enter an ingredient name</string>
     <string name="error_quantity_required">Enter a quantity</string>
@@ -22,6 +30,10 @@
     <string name="error_quantity_positive">Quantity must be greater than zero</string>
     <string name="error_unit">Enter a unit</string>
     <string name="ingredient_added">Ingredient added</string>
+    <string name="ingredient_updated">Ingredient updated</string>
+    <string name="ingredient_deleted">Ingredient deleted</string>
+    <string name="ingredient_not_found">Ingredient not found</string>
     <string name="ingredient_save_error">Could not save ingredient</string>
+    <string name="ingredient_delete_error">Could not delete ingredient</string>
 
 </resources>

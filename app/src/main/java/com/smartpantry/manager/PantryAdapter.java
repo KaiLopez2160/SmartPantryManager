@@ -3,6 +3,7 @@ package com.smartpantry.manager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,18 @@ import java.util.List;
 
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
 
+    public interface OnPantryItemActionListener {
+        void onEdit(PantryItem item);
+        void onDelete(PantryItem item);
+    }
+
     private final List<PantryItem> pantryItems = new ArrayList<>();
     private final DecimalFormat quantityFormat = new DecimalFormat("0.##");
+    private final OnPantryItemActionListener listener;
+
+    public PantryAdapter(OnPantryItemActionListener listener) {
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -38,6 +49,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
                 item.getUnit()
         );
         holder.textIngredientAmount.setText(amount);
+
+        holder.buttonEdit.setOnClickListener(view -> listener.onEdit(item));
+        holder.buttonDelete.setOnClickListener(view -> listener.onDelete(item));
     }
 
     @Override
@@ -55,11 +69,15 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
 
         TextView textIngredientName;
         TextView textIngredientAmount;
+        Button buttonEdit;
+        Button buttonDelete;
 
         PantryViewHolder(@NonNull View itemView) {
             super(itemView);
             textIngredientName = itemView.findViewById(R.id.textIngredientName);
             textIngredientAmount = itemView.findViewById(R.id.textIngredientAmount);
+            buttonEdit = itemView.findViewById(R.id.buttonEdit);
+            buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }
     }
 }

@@ -23,4 +23,33 @@
         android:textColor="@color/cyan"
         android:textSize="15sp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/orange"
+            android:text="@string/edit"
+            android:textAllCaps="false"
+            android:textColor="@color/navy" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/pink"
+            android:text="@string/delete"
+            android:textAllCaps="false"
+            android:textColor="@color/navy" />
+
+    </LinearLayout>
+
 </LinearLayout>

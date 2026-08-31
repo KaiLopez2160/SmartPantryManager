@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +31,18 @@ public class PantryActivity extends AppCompatActivity {
         Button buttonAddIngredient = findViewById(R.id.buttonAddIngredient);
 
         databaseHelper = new DatabaseHelper(this);
-        pantryAdapter = new PantryAdapter();
+
+        pantryAdapter = new PantryAdapter(new PantryAdapter.OnPantryItemActionListener() {
+            @Override
+            public void onEdit(PantryItem item) {
+                openEditIngredient(item);
+            }
+
+            @Override
+            public void onDelete(PantryItem item) {
+                showDeleteConfirmation(item);
+            }
+        });
 
         recyclerPantry.setLayoutManager(new LinearLayoutManager(this));
         recyclerPantry.setAdapter(pantryAdapter);
@@ -56,6 +69,32 @@ public class PantryActivity extends AppCompatActivity {
         } else {
             emptyState.setVisibility(View.GONE);
             recyclerPantry.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void openEditIngredient(PantryItem item) {
+        Intent intent = new Intent(this, AddEditIngredientActivity.class);
+        intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_ID, item.getId());
+        startActivity(intent);
+    }
+
+    private void showDeleteConfirmation(PantryItem item) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.delete_ingredient_title)
+                .setMessage(getString(R.string.delete_ingredient_message, item.getName()))
+                .setPositiveButton(R.string.delete, (dialog, which) -> deleteIngredient(item))
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    private void deleteIngredient(PantryItem item) {
+        int rowsDeleted = databaseHelper.deletePantryItem(item.getId());
+
+        if (rowsDeleted > 0) {
+            Toast.makeText(this, R.string.ingredient_deleted, Toast.LENGTH_SHORT).show();
+            loadPantryItems();
+        } else {
+            Toast.makeText(this, R.string.ingredient_delete_error, Toast.LENGTH_SHORT).show();
         }
     }
 }
