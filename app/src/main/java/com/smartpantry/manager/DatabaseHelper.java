@@ -253,6 +253,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return ingredients;
     }
 
+    public List<Recipe> getSuggestedRecipes() {
+        List<Recipe> suggestedRecipes = new ArrayList<>();
+        List<PantryItem> pantryItems = getAllPantryItems();
+        List<Recipe> recipes = getAllRecipes();
+
+        for (Recipe recipe : recipes) {
+            List<RecipeIngredient> requiredIngredients =
+                    getRecipeIngredients(recipe.getId());
+
+            if (RecipeMatcher.canMakeRecipe(pantryItems, requiredIngredients)) {
+                suggestedRecipes.add(recipe);
+            }
+        }
+
+        return suggestedRecipes;
+    }
+
     private void seedRecipes(SQLiteDatabase db) {
         Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_RECIPES, null);
         int recipeCount = 0;
