@@ -8,6 +8,10 @@
         android:theme="@style/Theme.SmartPantryManager">
 
         <activity
+            android:name=".SuggestedRecipesActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".AddEditIngredientActivity"
             android:exported="false" />
 

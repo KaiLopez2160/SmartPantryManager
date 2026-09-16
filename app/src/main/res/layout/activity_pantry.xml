@@ -33,6 +33,17 @@
         android:textColor="@color/navy"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/buttonSuggestedRecipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/orange"
+        android:text="@string/view_suggested_recipes"
+        android:textAllCaps="false"
+        android:textColor="@color/navy"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/emptyState"
         android:layout_width="match_parent"

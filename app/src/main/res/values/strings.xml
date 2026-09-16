@@ -8,6 +8,7 @@
     <string name="empty_pantry_message">Ingredients you add will appear here.</string>
     <string name="pantry_item_amount">%1$s %2$s</string>
     <string name="add_ingredient">Add Ingredient</string>
+    <string name="view_suggested_recipes">Suggested Recipes</string>
 
     <string name="add_ingredient_title">Add Ingredient</string>
     <string name="edit_ingredient_title">Edit Ingredient</string>
@@ -35,5 +36,10 @@
     <string name="ingredient_not_found">Ingredient not found</string>
     <string name="ingredient_save_error">Could not save ingredient</string>
     <string name="ingredient_delete_error">Could not delete ingredient</string>
+
+    <string name="suggested_recipes_title">Suggested Recipes</string>
+    <string name="suggested_recipes_subtitle">Recipes you can make with your pantry right now</string>
+    <string name="no_suggested_recipes_title">No recipes available yet</string>
+    <string name="no_suggested_recipes_message">No recipes match your pantry yet - add more ingredients.</string>
 
 </resources>
