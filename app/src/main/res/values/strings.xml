@@ -42,4 +42,8 @@
     <string name="no_suggested_recipes_title">No recipes available yet</string>
     <string name="no_suggested_recipes_message">No recipes match your pantry yet - add more ingredients.</string>
 
+    <string name="ingredients_heading">Ingredients</string>
+    <string name="method_heading">Method</string>
+    <string name="recipe_not_found">Recipe not found</string>
+
 </resources>

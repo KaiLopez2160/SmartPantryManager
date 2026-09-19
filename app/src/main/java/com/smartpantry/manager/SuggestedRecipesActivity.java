@@ -1,5 +1,6 @@
 package com.smartpantry.manager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,7 +27,15 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
         emptySuggestedRecipes = findViewById(R.id.emptySuggestedRecipes);
 
         databaseHelper = new DatabaseHelper(this);
-        recipeAdapter = new RecipeAdapter();
+
+        recipeAdapter = new RecipeAdapter(recipe -> {
+            Intent intent = new Intent(
+                    SuggestedRecipesActivity.this,
+                    RecipeDetailActivity.class
+            );
+            intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, recipe.getId());
+            startActivity(intent);
+        });
 
         recyclerSuggestedRecipes.setLayoutManager(new LinearLayoutManager(this));
         recyclerSuggestedRecipes.setAdapter(recipeAdapter);
