@@ -26,6 +26,8 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
         recyclerSuggestedRecipes = findViewById(R.id.recyclerSuggestedRecipes);
         emptySuggestedRecipes = findViewById(R.id.emptySuggestedRecipes);
 
+        NavigationHelper.setup(this, R.id.navRecipes);
+
         databaseHelper = new DatabaseHelper(this);
 
         recipeAdapter = new RecipeAdapter(recipe -> {

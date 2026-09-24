@@ -46,4 +46,12 @@
     <string name="method_heading">Method</string>
     <string name="recipe_not_found">Recipe not found</string>
 
+    <string name="nav_pantry">Pantry</string>
+    <string name="nav_recipes">Recipes</string>
+    <string name="nav_settings">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_subtitle">Pantry display preferences</string>
+    <string name="settings_compact_units">Show compact quantities</string>
+    <string name="settings_compact_units_description">Show 1500 g as 1.5 kg and 1200 ml as 1.2 L in your pantry. Your saved quantities and recipe matching do not change.</string>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.smartpantry.manager;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
 
@@ -42,12 +44,32 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
 
         holder.textIngredientName.setText(item.getName());
 
-        String quantity = quantityFormat.format(item.getQuantity());
-        String amount = holder.itemView.getContext().getString(
-                R.string.pantry_item_amount,
-                quantity,
-                item.getUnit()
-        );
+        Context context = holder.itemView.getContext();
+        double displayQuantity = item.getQuantity();
+        String displayUnit = item.getUnit();
+
+        boolean compact = context.getSharedPreferences(
+                SettingsActivity.PREFERENCES_NAME, Context.MODE_PRIVATE)
+                .getBoolean(SettingsActivity.KEY_COMPACT_UNITS, false);
+
+        if (compact && displayQuantity >= 1000) {
+            String unit = displayUnit.trim().toLowerCase(Locale.ROOT);
+
+            if (unit.equals("g") || unit.equals("gram") || unit.equals("grams")) {
+                displayQuantity /= 1000;
+                displayUnit = "kg";
+            } else if (unit.equals("ml") || unit.equals("millilitre")
+                    || unit.equals("millilitres") || unit.equals("milliliter")
+                    || unit.equals("milliliters")) {
+                displayQuantity /= 1000;
+                displayUnit = "L";
+            }
+        }
+
+        String quantity = quantityFormat.format(displayQuantity);
+        String amount = context.getString(
+                R.string.pantry_item_amount, quantity, displayUnit);
+
         holder.textIngredientAmount.setText(amount);
 
         holder.buttonEdit.setOnClickListener(view -> listener.onEdit(item));
