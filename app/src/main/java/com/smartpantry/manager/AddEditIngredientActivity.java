@@ -84,6 +84,12 @@ public class AddEditIngredientActivity extends AppCompatActivity {
             return;
         }
 
+        if (Double.isNaN(quantity) || Double.isInfinite(quantity)) {
+            editQuantity.setError(getString(R.string.error_quantity_number));
+            editQuantity.requestFocus();
+            return;
+        }
+
         if (quantity <= 0) {
             editQuantity.setError(getString(R.string.error_quantity_positive));
             editQuantity.requestFocus();
