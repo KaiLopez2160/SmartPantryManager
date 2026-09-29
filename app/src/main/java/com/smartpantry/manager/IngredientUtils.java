@@ -22,7 +22,15 @@ public class IngredientUtils {
             words[lastIndex] = makeSingular(words[lastIndex]);
         }
 
-        return String.join(" ", words);
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            if (result.length() > 0) {
+                result.append(" ");
+            }
+            result.append(word);
+        }
+
+        return result.toString();
     }
 
     private static String makeSingular(String word) {
